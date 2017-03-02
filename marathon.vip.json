@@ -1,0 +1,71 @@
+{
+  "id": "small-hdfs",
+  "cmd": "/root/docker_entrypoint.sh",
+  "cpus": 1.5,
+  "mem": 4096.0,
+  "instances": 1,
+  "container": {
+    "type": "DOCKER",
+    "volumes": [
+      {
+        "containerPath": "hdfssqldata",
+        "mode": "RW",
+        "persistent": {
+          "type": "root",
+          "size": 1000
+        }
+      }
+    ],
+    "docker": {
+      "image": "slowenthal/small-hdfs",
+      "network": "HOST"
+    }
+  },
+  "labels": {
+    "DCOS_SERVICE_NAME": "small-hdfs",
+    "DCOS_SERVICE_PORT_INDEX": "0",
+    "DCOS_SERVICE_SCHEME": "http"
+  },
+  "portDefinitions": [
+    {
+      "protocol": "tcp",
+      "port": 50070,
+      "name": "namenode-http",
+      "labels": {
+         "VIP_0": "/namenode-http:50070"
+      }
+
+    },
+    {
+      "protocol": "tcp",
+      "port": 0,
+      "name": "datanode-http"
+    },
+    {
+      "protocol": "tcp",
+      "port": 0,
+      "name": "datanode"
+    },
+    {
+      "protocol": "tcp",
+      "port": 0,
+      "name": "datanode-ipc"
+    },
+    {
+      "protocol": "tcp",
+      "port": 9000,
+      "name": "namenode",
+      "labels": {
+         "VIP_0": "/namenode:9000"
+      }
+    }
+  ],
+  "upgradeStrategy": {
+    "minimumHealthCapacity": 0,
+    "maximumOverCapacity": 0
+  },
+  "residency": {
+    "taskLostBehavior": "WAIT_FOREVER"
+  }
+}
+

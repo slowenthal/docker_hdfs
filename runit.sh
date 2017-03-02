@@ -1,0 +1,1 @@
+docker run -d -h hdfs -p 50010:50010 -p 50020:50020 -p 50070:50070 -p 50470:50470 -p 50075:50075 -p 50090:50090 -p 9000:9000 -p 8020:8020 --name small-hdfs slowenthal/small-hdfs /root/docker_entrypoint.sh
