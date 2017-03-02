@@ -8,7 +8,7 @@ This container will serve out a hdfs_site.xml and core_site.xml for use in DC/OS
 
 The files are hard-coded to serve out the host namenode.marathon.l4lb.thisdcos.directory:9000 for the namenode.  This matches the marathon.vip.json file.
 
-To serve out the configs just curl them from port 50070   curl http://<namenode>:50070/core_site.xml
+To serve out the configs just curl them from port 50070   `curl http://<namenode>:50070/core_site.xml`
 
 The container uses standard ports for HDFS, but they can be remapped using the PORT0 ... PORT5 environment variables.  This is primarily to dynamically assign the ports for DC/OS. see the docker_entrypoint.sh for the port assignments.
 
