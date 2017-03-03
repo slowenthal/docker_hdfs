@@ -5,8 +5,8 @@ wget  http://mirrors.whoishostingthis.com/apache/hadoop/common/hadoop-2.7.1/hado
 
 This container will serve out a hdfs_site.xml and core_site.xml for use in DC/OS for use with containers that require this functionality, such as mesosphere/spark, slowenthal/zeppelin-0.7.0 
 
-
-The files are hard-coded to serve out the host namenode.marathon.l4lb.thisdcos.directory:9000 for the namenode.  This matches the marathon.vip.json file.
+The environment variable SERVICE_HOSTNAME sets the default HDFS filesystem for the core-site.xml that the container serves out.  This is useful for DC/OS service discovery.
+If it is left blank, the container's hostname is used.
 
 To serve out the configs just curl them from port 50070   `curl http://<namenode>:50070/core_site.xml`
 

@@ -150,5 +150,6 @@ RUN sed -i 's#/static/#static/#' /opt/hadoop/share/hadoop/hdfs/webapps/hdfs/dfsh
  && sed -i 's#/static/#static/#' /opt/hadoop/share/hadoop/hdfs/webapps/hdfs/explorer.html   
 
 RUN sed -i 's#/jmx?#jmx?#' /opt/hadoop/share/hadoop/hdfs/webapps/hdfs/dfshealth.js   \
- && sed -i 's#/jmx?#jmx?#' /opt/hadoop/share/hadoop/hdfs/webapps/hdfs/explorer.js   
+ && sed -i 's#/jmx?#jmx?#' /opt/hadoop/share/hadoop/hdfs/webapps/hdfs/explorer.js    \
+ && sed -i 's#/webhdfs#webhdfs#' /opt/hadoop/share/hadoop/hdfs/webapps/hdfs/explorer.js   
 

@@ -4,6 +4,9 @@
   "cpus": 1.5,
   "mem": 4096.0,
   "instances": 1,
+  "env": {
+    "SERVICE_HOSTNAME": "namenode.marathon.l4lb.thisdcos.directory:9000"
+  },
   "container": {
     "type": "DOCKER",
     "volumes": [
